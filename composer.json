@@ -1,0 +1,13 @@
+{
+    "name": "sanmai/phpunit-sdk",
+    "description": "PHPUnit SDK",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Alexey Kopytko",
+            "email": "alexey@kopytko.com"
+        }
+    ],
+    "require": {}
+}
