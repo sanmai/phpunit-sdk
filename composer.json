@@ -1,7 +1,7 @@
 {
     "name": "sanmai/phpunit-sdk",
-    "description": "PHPUnit SDK",
     "type": "library",
+    "description": "PHPUnit SDK",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -9,5 +9,30 @@
             "email": "alexey@kopytko.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^7.2",
+        "jms/serializer": "^3.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "infection/infection": "^0.14.2",
+        "phan/phan": "^2.4",
+        "php-coveralls/php-coveralls": "^2.1",
+        "phpstan/phpstan": "^0.11.19",
+        "phpunit/phpunit": "^8.4",
+        "vimeo/psalm": "^3.6"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPUnitSDK\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\PHPUnitSDK\\": "tests/"
+        }
+    }
 }

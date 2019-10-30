@@ -1,2 +1,8 @@
 vendor/
 composer.lock
+.phpunit.result.cache
+
+build/
+coverage/
+infection-log.txt
+
