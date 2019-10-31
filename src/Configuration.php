@@ -396,4 +396,12 @@ final class Configuration
      * @var bool
      */
     public $verbose; // "false"
+
+    /**
+     * @JMS\XmlList(entry = "testsuite", inline = false)
+     * @JMS\Type("array<PHPUnitSDK\TestSuite>")
+     *
+     * @var TestSuite[]
+     */
+    public $testsuites = [];
 }

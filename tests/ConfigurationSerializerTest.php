@@ -47,6 +47,25 @@ final class ConfigurationSerializerTest extends TestCase
 ', $this->getSerializer()->serialize($configuration));
     }
 
+    public function test_it_deserializes_testsuite_list()
+    {
+        $configuration = $this->getSerializer()->deserialize('<?xml version="1.0" encoding="utf-8" ?><phpunit><testsuites><testsuite name="Foo" /><testsuite name="Bar" /></testsuites></phpunit>');
+
+        $this->assertCount(2, $configuration->testsuites);
+
+        $this->assertSame('Foo', $configuration->testsuites[0]->name);
+        $this->assertSame('Bar', $configuration->testsuites[1]->name);
+
+        $this->assertSame('<?xml version="1.0" encoding="UTF-8"?>
+<phpunit>
+  <testsuites>
+    <testsuite name="Foo"/>
+    <testsuite name="Bar"/>
+  </testsuites>
+</phpunit>
+', $this->getSerializer()->serialize($configuration));
+    }
+
     /**
      * @dataProvider xmlProvider
      *
