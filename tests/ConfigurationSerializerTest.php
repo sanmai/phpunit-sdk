@@ -46,4 +46,25 @@ final class ConfigurationSerializerTest extends TestCase
 <phpunit backupGlobals="false"/>
 ', $this->getSerializer()->serialize($configuration));
     }
+
+    /**
+     * @dataProvider xmlProvider
+     *
+     * @param mixed $input
+     */
+    public function test_it_serialized_and_deserializes_to_the_same_xml($input)
+    {
+        $configuration = $this->getSerializer()->deserialize($input);
+
+        $this->assertSame($input, $this->getSerializer()->serialize($configuration));
+    }
+
+    public function xmlProvider()
+    {
+        foreach (glob(__DIR__.'/Fixtures/data/*.xml') as $filename) {
+            yield [
+                file_get_contents($filename),
+            ];
+        }
+    }
 }
