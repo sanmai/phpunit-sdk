@@ -404,4 +404,20 @@ final class Configuration
      * @var TestSuite[]
      */
     public $testsuites = [];
+
+
+    /**
+     * @JMS\XmlList(entry = "log", inline = false)
+     * @JMS\Type("array<PHPUnitSDK\Log>")
+     *
+     * @var Log[]
+     */
+    public $logging = [];
+
+    /**
+     * @JMS\Type("PHPUnitSDK\Php")
+     *
+     * @var Php
+     */
+    public $php;
 }

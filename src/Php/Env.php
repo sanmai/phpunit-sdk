@@ -17,16 +17,15 @@
 
 declare(strict_types=1);
 
-namespace PHPUnitSDK;
+namespace PHPUnitSDK\Php;
 
 /** @phan-suppress-next-line PhanUnreferencedUseNormal */
 use JMS\Serializer\Annotation as JMS;
-use PHPUnitSDK\TestSuite\Directory;
 
 /**
- * @JMS\XmlRoot(name="testsuite")
+ * @JMS\XmlRoot(name="ini")
  */
-final class TestSuite
+final class Env
 {
     /**
      * @JMS\XmlAttribute
@@ -37,25 +36,26 @@ final class TestSuite
     public $name;
 
     /**
-     * @JMS\XmlList(entry = "directory", inline = true)
-     * @JMS\Type("array<PHPUnitSDK\TestSuite\Directory>")
+     * @JMS\XmlAttribute
+     * @JMS\Type("string")
      *
-     * @var Directory[]
+     * @var string
      */
-    public $directories = [];
+    public $value;
 
     /**
-     * @JMS\XmlList(entry = "file", inline = true)
-     * @JMS\Type("array<PHPUnitSDK\TestSuite\File>")
+     * @JMS\XmlAttribute
+     * @JMS\Type("bool")
      *
-     * @var File[]
+     * @var bool
      */
-    public $files = [];
-}
+    public $force;
 
-/*
- <testsuite name="My Test Suite">
- <directory suffix="Test.php" phpVersion="5.3.0" phpVersionOperator=">=">/path/to/files</directory>
- <file phpVersion="5.3.0" phpVersionOperator=">=">/path/to/MyTest.php</file>
- </testsuite>
- */
+    /**
+     * @JMS\XmlAttribute
+     * @JMS\Type("bool")
+     *
+     * @var bool
+     */
+    public $verbatim;
+}
